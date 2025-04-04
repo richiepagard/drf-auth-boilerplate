@@ -1,0 +1,6 @@
+asgiref==3.8.1
+Django==5.2
+djangorestframework==3.16.0
+djangorestframework_simplejwt==5.5.0
+PyJWT==2.9.0
+sqlparse==0.5.3
