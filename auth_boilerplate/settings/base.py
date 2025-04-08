@@ -28,6 +28,7 @@ DJANGO_APPS = [
 EXTERNAL_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 LOCAL_APPS = [
     'accounts.apps.AccountsConfig',
@@ -127,3 +128,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
+
+
+# Import JWT configs
+from .jwt import SIMPLE_JWT
