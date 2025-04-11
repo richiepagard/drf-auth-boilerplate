@@ -63,8 +63,8 @@ It's not meant for production use out of box.
 - [x] Create custom user model
 - [x] Add user registration endpoint
 - [x] Generate JWT tokens after successful registration
-- [x] Stup SimpleJWT token endpoints
-- [ ] Add login endpoint using JWT 
+- [x] Setup SimpleJWT token endpoints
+- [x] Add login endpoint using JWT 
 - [ ] Add user logout and token blacklist
 - [ ] Add password reset (via email or OTP)
 - [ ] Add user profile endpoint
