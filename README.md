@@ -65,7 +65,7 @@ It's not meant for production use out of box.
 - [x] Generate JWT tokens after successful registration
 - [x] Setup SimpleJWT token endpoints
 - [x] Add login endpoint using JWT 
-- [ ] Add user logout and token blacklist
+- [x] Add user logout and token blacklist
 - [ ] Add password reset (via email or OTP)
 - [ ] Add user profile endpoint
 - [ ] Write unit tests for authentication

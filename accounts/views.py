@@ -65,6 +65,13 @@ class UserLogoutView(APIView):
             # Extract refresh token from request data
             refresh_token = request.data.get('refresh')
 
+            # Ensure refresh token exists, else raise custom exception
+            if not refresh_token:
+                return Response(
+                    {'error': 'Refresh token is required.'},
+                    status = status.HTTP_400_BAD_REQUEST
+                )
+
             # Create a token object and blacklist it
             token = RefreshToken(refresh_token)
             token.blacklist()
