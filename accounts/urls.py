@@ -5,7 +5,11 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView
 )
 
-from accounts.views import UserRegisterView, UserLoginView
+from accounts.views import (
+    UserRegisterView,
+    UserLoginView,
+    UserLogoutView
+)
 
 app_name = 'accounts'
 
@@ -18,5 +22,6 @@ jwt_urlpatterns = [
 auth_urlpatterns = [
     path('register/', UserRegisterView.as_view(), name='user_register'),
     path('login/', UserLoginView.as_view(), name='user_login'),
+    path('logout/', UserLogoutView.as_view(), name='user_logout')
 ]
 urlpatterns = jwt_urlpatterns + auth_urlpatterns

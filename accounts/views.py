@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from accounts.serializers import UserRegisterSerializer, UserLoginSerializer
@@ -48,3 +49,34 @@ class UserLoginView(APIView):
         serializer.is_valid(raise_exception=True)
 
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
+
+
+class UserLogoutView(APIView):
+    """
+    Log out a user by blacklisting their refresh token.
+
+    Requires the user to be authenticated and sends the refresh token in the request body.
+    On success, the refresh token is blacklisted, preventing further use for token refresh.
+    """
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        try:
+            # Extract refresh token from request data
+            refresh_token = request.data.get('refresh')
+
+            # Create a token object and blacklist it
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+
+            return Response(
+                {'message': 'You have successfully logged out.'},
+                status=status.HTTP_205_RESET_CONTENT
+            )
+
+        except Exception as e:
+            # If token is invalid or missing, return a bad request
+            return Response(
+                {'error': 'Invalid or missing refresh token.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
