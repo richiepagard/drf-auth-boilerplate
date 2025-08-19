@@ -90,3 +90,5 @@ db.sqlite3
 
 # IDEs
 .idea/
+# Swap files
+*.swp
