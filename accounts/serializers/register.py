@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 from accounts.models import User
 from accounts.utils import get_tokens_for_user
+from .wrapper_methods import user_response_data
 
 
 class UserRegisterSerializer(serializers.ModelSerializer):
@@ -53,19 +54,8 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 
         return user
 
-    def get_response_data(self, *args, **kwargs) -> dict:
+    def get_response_data(self, *args, **kwargs):
         """
-        Calling it after 'is_valid()' method in views
-        to done the user registration process.
-
-        Returns user information includes user tokens for authentication.
+        Just call the wrapper function to return proper data.
         """
-        user_info = {
-            "user_id": self.user.pk,
-            "username": self.user.username,
-            "email": self.user.email,
-            "nickname": self.user.nickname,
-            "tokens": self.tokens
-        }
-
-        return user_info
+        return user_response_data(self.user, self.tokens)
