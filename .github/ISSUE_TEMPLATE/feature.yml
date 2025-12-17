@@ -1,0 +1,65 @@
+name: Feature / Enhancement
+description: Propose a new feature or an improvement to an existing one.
+
+body:
+  - type: textarea
+    id: problem
+
+    attributes:
+      label: Problem Statement
+      description: |
+        What problem does this feature solve?
+        If this is an enhancement, what is currently missing or insufficient?
+
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+
+    attributes:
+      label: Proposed Solution
+      description: |
+        Describe your proposed solution.
+        Be as clear and specific as possible.
+
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+
+    attributes:
+      label: Alternatives Considered
+      description: |
+        Have you considered other approaches or workarounds?
+        If yes, describe them here.
+
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: scope
+
+    attributes:
+      label: Scope
+      description: Which parts of the project does this affect?
+      options:
+        - label: Authentication
+        - label: Authorization / Permissions
+        - label: Token handling
+        - label: Configuration
+        - label: Documentation
+        - label: Tests
+        - label: Other
+
+  - type: textarea
+    id: additional_context
+
+    attributes:
+      label: Additional Context
+      description: |
+        Add any extra context, examples, or references here.
+
+    validations:
+      required: false
