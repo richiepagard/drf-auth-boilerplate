@@ -2,40 +2,52 @@ from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-from accounts.models import User
+from accounts.models import User, UserProfile
 from accounts.forms import UserCreationForm, UserChangeForm
 
 
+@admin.register(User)
 class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ['username', 'email', 'nickname', 'is_admin', 'is_staff']
-    list_filter = ['is_active', 'is_admin', 'is_staff']
-    search_fields = ['username', 'email', 'nickname']
-    ordering = ['username', 'email']
-    filter_horizontal = ['groups', 'user_permissions']
+    list_display = ["username", "email", "is_admin", "is_staff"]
+    list_filter = ["is_active", "is_admin", "is_staff"]
+    search_fields = ["username", "email"]
+    ordering = ["username", "email"]
+    filter_horizontal = ["groups", "user_permissions"]
     list_per_page = 30
 
     fieldsets = (
-        [_('Personal Information'),
+        [_("Personal Information"),
             {
-                'fields': ('username', 'email', 'nickname', 'password')
+                "fields": ("username", "email", "password")
             }
         ],
-        [_('Permissions'),
+        [_("Permissions"),
             {
-                'classes': ('collapse',),
-                'fields': ('is_active', 'is_admin', 'is_staff', 'is_superuser', 'groups', 'user_permissions')
+                "classes": ("collapse",),
+                "fields": (
+                    "is_active", "is_admin", "is_staff",
+                    "is_superuser", "groups", "user_permissions"
+                )
             }
         ],
     )
 
     add_fieldsets = (
-        [None,
+        [_("Personal Information"),
             {
-                'classes': ('wide',),
-                'fields': ('username', 'email', 'nickname', 'password1', 'password2')
+                "fields": ("username", "email", "password1", "password2")
+            }
+        ],
+        [_("Permissions"),
+            {
+                "classes": ("collapse",),
+                "fields": (
+                    "is_active", "is_admin", "is_staff", "is_superuser",
+                    "groups", "user_permissions"
+                )
             }
         ],
     )
@@ -57,4 +69,8 @@ class UserAdmin(BaseUserAdmin):
         return form
 
 
-admin.site.register(User, UserAdmin)
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ["user", "nickname"]
+    search_fields = ["nickname", "bio"]
+    list_per_page = 30
