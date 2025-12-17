@@ -18,7 +18,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'nickname']
+        fields = ['username', 'email']
 
 
     def __init__(self, *args, **kwargs):
@@ -27,7 +27,6 @@ class UserCreationForm(forms.ModelForm):
         # Add placeholder for fields
         self.fields['username'].widget.attrs = {'placeholder': _('Username')}  
         self.fields['email'].widget.attrs = {'placeholder': _('Email address; someone@example.com, etc.')}
-        self.fields['nickname'].widget.attrs = {'placeholder': _('Nickname')}
 
     def clean_password2(self):
         """
@@ -73,4 +72,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'nickname', 'password', 'is_active', 'is_admin', 'is_staff']
+        fields = [
+            'username', 'email', 'password',
+            'is_active', 'is_admin', 'is_staff'
+        ]

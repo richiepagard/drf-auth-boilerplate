@@ -12,7 +12,6 @@ def user_response_data(user: User, tokens: dict) -> dict:
         "user_id": user.pk,
         "username": user.username,
         "email": user.email,
-        "nickname": user.nickname,
         "tokens": tokens
     }
 

@@ -14,7 +14,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'nickname', 'password', 'password2']
+        fields = ['username', 'email', 'password', 'password2']
         extra_kwargs = {
             'password': {'write_only': True},
         }
@@ -43,7 +43,6 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         user = User(
             username=validated_data.get("username"),
             email=validated_data.get("email"),
-            nickname=validated_data.get("nickname")
         )
         # Hash the valdiated password data
         user.set_password(validated_data.get("password"))
