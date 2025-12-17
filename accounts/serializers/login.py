@@ -11,7 +11,8 @@ class UserLoginSerializer(serializers.Serializer):
     User login serialization. Validated user and authenticated it.
 
     Authenticate user using the provided username and password.
-    If authenticate is successful and the user is active, returns a new JWT token pair.
+    If authenticate is successful and the user is active,
+    returns a new JWT token pair.
     """
     username = serializers.CharField(
         max_length=30,
@@ -47,7 +48,9 @@ class UserLoginSerializer(serializers.Serializer):
         password = attrs.get('password')
 
         if not username or not password:
-            raise serializers.ValidationError(self.default_error_messages["missing_fields"])
+            raise serializers.ValidationError(
+                self.default_error_messages["missing_fields"]
+            )
 
         # Authenticate user
         user = authenticate(
@@ -57,10 +60,14 @@ class UserLoginSerializer(serializers.Serializer):
         )
 
         if not user:
-            raise serializers.ValidationError(self.default_error_messages["invalid_credentials"])
+            raise serializers.ValidationError(
+                self.default_error_messages["invalid_credentials"]
+            )
 
         if not user.is_active:
-            raise serializers.ValidationError(self.default_error_messages["inactive_account"])
+            raise serializers.ValidationError(
+                self.default_error_messages["inactive_account"]
+            )
 
         # Store user to using it in other methods
         self.user = user

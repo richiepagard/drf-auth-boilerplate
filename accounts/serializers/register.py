@@ -8,9 +8,11 @@ from .wrapper_methods import user_response_data
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     """
-    User registration serialization. Model serializer to override 'create' method.
+    User registration serialization.
+    Model serializer to override 'create' method.
     """
-    password2 = serializers.CharField(write_only=True)  # Confirm password
+    # Confirm password
+    password2 = serializers.CharField(write_only=True)
 
     class Meta:
         model = User
@@ -28,13 +30,16 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         Ensure that the two entered passwords match.
         """
         if attrs['password'] != attrs['password2']:
-            raise serializers.ValidationError(self.default_error_messages["password_mismatch"])
+            raise serializers.ValidationError(
+                self.default_error_messages["password_mismatch"]
+            )
 
         return attrs
 
     def create(self, validated_data: dict) -> User:
         """
-        Create a new user instance (new rudimentary user) with the given validated data.
+        Create a new user instance (new rudimentary user)
+        with the given validated data.
         """
         validated_data.pop("password2")
 
