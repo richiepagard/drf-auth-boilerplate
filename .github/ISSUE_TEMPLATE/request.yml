@@ -1,0 +1,51 @@
+name: General Request
+description: Request a change, refactor, clarification, or other improvement.
+
+body:
+  - type: textarea
+    id: request
+
+    attributes:
+      label: Request Description
+      description: |
+        Clearly describe your request.
+        What would you like to see changed or added?
+
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+
+    attributes:
+      label: Motivation
+      description: |
+        Why is this request useful or necessary?
+
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: request_type
+
+    attributes:
+      label: Request Type
+      description: Select all that apply.
+      options:
+        - label: Refactor
+        - label: Code cleanup
+        - label: Documentation improvement
+        - label: API usability
+        - label: Developer experience
+        - label: Other
+
+  - type: textarea
+    id: additional_context
+
+    attributes:
+      label: Additional Context
+      description: |
+        Add any relevant context, examples, or links here.
+
+    validations:
+      required: false
