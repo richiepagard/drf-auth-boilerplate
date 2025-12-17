@@ -7,14 +7,12 @@ from accounts.managers import UserManager
 
 class User(AbstractBaseUser, PermissionsMixin):
     """
-    Represent a user in the system, including authentication and profile details.
+    Represent a user in the system, including authentication.
 
     Attributes:
         username (str): A unique identifier for authentication.
         email (str): The user's email address, used for communication and  account activation.
-        nickname (str, optional): A display name shown in the user interface.
     """
-
     username = models.CharField(
         max_length=30,
         unique=True,
@@ -23,12 +21,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
         unique=True,
         verbose_name=_("Email Address")
-    )
-    nickname = models.CharField(
-        max_length=50,
-        null=True,
-        blank=True,
-        verbose_name=_("Nickname")
     )
 
     is_active = models.BooleanField(
@@ -56,15 +48,13 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
     def __str__(self) -> str:
-        return self.nickname or str(_("Unnamed user!"))
+        return self.username or str(_("Unnamed user!"))
 
     def save(self, *args, **kwargs):
         if self.username:
             self.username = self.username.strip().lower()
         if self.email:
             self.email = self.email.strip().lower()
-        if self.nickname:
-            self.nickname = self.nickname.strip().lower()
 
         if self.is_admin:
             self.is_staff = True    # Ensure all admins have staff privileges
