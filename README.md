@@ -67,7 +67,7 @@ It's not meant for production use out of box.
 - [x] Add login endpoint using JWT 
 - [x] Add user logout and token blacklist
 - [ ] Add password reset (via email or OTP)
-- [ ] Add user profile endpoint
+- [x] Add user profile endpoint
 - [ ] Write unit tests for authentication
 
 ---
