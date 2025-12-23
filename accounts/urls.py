@@ -6,6 +6,7 @@ from accounts.views import (
     UserLoginView,
     # User Profie
     UserProfileRetrieveView,
+    UserPorfileUpdateView
 )
 
 
@@ -20,6 +21,11 @@ USER_PROFILE_URLS = [
         "users/<int:user_pk>/profile/",
         UserProfileRetrieveView.as_view(),
         name="user-profile"
+    ),
+    path(
+        "users/profile/update/",
+        UserPorfileUpdateView.as_view(),
+        name="user-profile-update"
     )
 ]
 JWT_URLS = [
