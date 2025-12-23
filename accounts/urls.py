@@ -1,14 +1,32 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from accounts.views import UserRegisterView, UserLoginView
+from accounts.views import (
+    UserRegisterView,
+    UserLoginView,
+    # User Profie
+    UserProfileRetrieveView,
+    UserPorfileUpdateView
+)
 
 
 app_name = 'accounts'
 
-AUTH_URLS = [
+USER_AUTH_URLS = [
     path('users/register/', UserRegisterView.as_view(), name='user-register'),
     path('users/login/', UserLoginView.as_view(), name='user-login'),
+]
+USER_PROFILE_URLS = [
+    path(
+        "users/<int:user_pk>/profile/",
+        UserProfileRetrieveView.as_view(),
+        name="user-profile"
+    ),
+    path(
+        "users/profile/update/",
+        UserPorfileUpdateView.as_view(),
+        name="user-profile-update"
+    )
 ]
 JWT_URLS = [
     # Generate access and refresh tokens for user login
@@ -17,4 +35,4 @@ JWT_URLS = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token-refresh'),
 ]
 
-urlpatterns = AUTH_URLS + JWT_URLS
+urlpatterns = USER_AUTH_URLS + USER_PROFILE_URLS + JWT_URLS
