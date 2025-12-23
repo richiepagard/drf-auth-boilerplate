@@ -1,2 +1,3 @@
 from .register import UserRegisterSerializer
 from .login import UserLoginSerializer
+from .user_profile_serializer import UserProfileRetrieveSerializer
