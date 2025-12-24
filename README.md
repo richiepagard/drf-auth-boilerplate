@@ -38,6 +38,8 @@ python3 manage.py runserver
 |  POST  | `api/auth/register/`     | Register new user + get JWT tokens.|
 |  POST  | `api/auth/token/`        | Get access and refresh tokens.     |
 |  POST  | `api/auth/token/refresh/`| Refresh access token.              |
+|  GET   | `api/auth/users/<user-pk>/profile` | Retrieves a user profile with no permissions.  |
+|  PATCH | `api/auth/users/profile/update/` | Updating a user profile by its owner (partial update). |
 
 
 ## Note
