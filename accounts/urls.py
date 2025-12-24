@@ -2,8 +2,10 @@ from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from accounts.views import (
+    # Authentication
     UserRegisterView,
     UserLoginView,
+    UserLogoutView,
     # User Profie
     UserProfileRetrieveView,
     UserPorfileUpdateView
@@ -15,6 +17,7 @@ app_name = 'accounts'
 USER_AUTH_URLS = [
     path('users/register/', UserRegisterView.as_view(), name='user-register'),
     path('users/login/', UserLoginView.as_view(), name='user-login'),
+    path('users/logout/', UserLogoutView.as_view(), name='user-logout'),
 ]
 USER_PROFILE_URLS = [
     path(

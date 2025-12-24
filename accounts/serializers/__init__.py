@@ -4,3 +4,4 @@ from .user_profile_serializer import (
     UserProfileRetrieveSerializer,
     UserProfileUpdateSerializer
 )
+from .user_logout_serializer import UserLogoutSerializer
