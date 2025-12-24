@@ -33,13 +33,14 @@ python3 manage.py runserver
 
 ## Endpoints
 
-| Method |          URL             |             Description            |
-|--------|--------------------------|------------------------------------|
-|  POST  | `api/auth/register/`     | Register new user + get JWT tokens.|
-|  POST  | `api/auth/token/`        | Get access and refresh tokens.     |
-|  POST  | `api/auth/token/refresh/`| Refresh access token.              |
-|  GET   | `api/auth/users/<user-pk>/profile` | Retrieves a user profile with no permissions.  |
-|  PATCH | `api/auth/users/profile/update/` | Updating a user profile by its owner (partial update). |
+| TITLE                 | METHOD |            URL                    |                            DESCRIPTION                              |
+|-----------------------|--------------------------------------------|---------------------------------------------------------------------|-
+| Get JWT Tokens        |  POST  | `api/auth/token/`                 | Get access and refresh tokens.                                      |
+| Get Access Token      |  POST  | `api/auth/token/refresh/`         | Refresh access token.                                               |
+| User Register         |  POST  | `api/auth/users/register/`        | Register new user + get JWT tokens.                                 |
+| User Login            |  POST  | `api/auth/users/login/`           | Login a new user with getting its **access** and **refresh** tokens.|
+| User Profile Retrieve |  GET   | `api/auth/users/<user-pk>/profile`| Retrieves a user profile with no permissions.                       |
+| User Profile Update   |  PATCH | `api/auth/users/profile/update/`  | Updating a user profile by its owner (partial update).              |
 
 
 ## Note
