@@ -2,7 +2,6 @@
 
 A simple Django Rest Framework project with basic JWT authentication setup.
 
----
 
 ## Features
 
@@ -11,7 +10,6 @@ A simple Django Rest Framework project with basic JWT authentication setup.
 - Token endpoints using SimpleJWT
 - Clean and minimal project layout
 
----
 
 ## Stack
 - Python
@@ -19,7 +17,6 @@ A simple Django Rest Framework project with basic JWT authentication setup.
 - Django Rest Framework
 - SimpleJWT
 
----
 
 ## Getting Started
 ```bash
@@ -33,7 +30,6 @@ python3 manage.py createsuperuser --username <username> --email <email address>
 python3 manage.py runserver
 ```
 
----
 
 ## Endpoints
 
@@ -43,20 +39,17 @@ python3 manage.py runserver
 |  POST  | `api/auth/token/`        | Get access and refresh tokens.     |
 |  POST  | `api/auth/token/refresh/`| Refresh access token.              |
 
----
 
 ## Note
 
 This project is just a starting point.
 It's not meant for production use out of box.
 
----
 
 ## License
 
 **MIT**
 
----
 
 ## TODO
 - [x] Setup Django project and structure
