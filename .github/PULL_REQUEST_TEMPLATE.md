@@ -1,12 +1,15 @@
-## Description
+## Title of the PR(Pull Request)
 
-Please provide a clear and concise description of the changes made in this pull request.
+<!-- Please include a summary of the change and which issue is fixed. -->
 
----
+## Changes
+- ...
+
 
 ## Type of change
 
-What kind of change does this PR introduce? (check at least one)
+<!-- What kind of change does this PR introduce? (check at least one) -->
+<!-- Select all that apply. -->
 
 - [ ] Bugfix
 - [ ] Feature
@@ -16,11 +19,10 @@ What kind of change does this PR introduce? (check at least one)
 - [ ] Tests
 - [ ] Other (please describe):
 
----
 
 ## Checklist
 
-Before submitting the PR, make sure the following are done:
+<!-- Before submitting the PR, make sure the following are done: -->
 
 - [ ] I have tested the changes locally
 - [ ] I have added/updated necessary documentation (if needed)
@@ -28,10 +30,10 @@ Before submitting the PR, make sure the following are done:
 - [ ] My changes do not produce any new warnings or errors
 - [ ] I linked related issue (if applicable)
 
----
 
-## Related Issues
+## Issues
+#### Related Issues
+- #
 
-If this PR addresses one or more issues, link them here:
-
-Closes #
+#### Closed Issues
+- #
