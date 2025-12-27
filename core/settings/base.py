@@ -32,6 +32,7 @@ EXTERNAL_APPS = [
 ]
 LOCAL_APPS = [
     'accounts.apps.AccountsConfig',
+    'common.apps.CommonConfig',
 ]
 INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + LOCAL_APPS
 
