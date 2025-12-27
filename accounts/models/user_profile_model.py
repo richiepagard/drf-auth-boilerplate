@@ -1,10 +1,11 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from common.models import BaseModel
 from .user_model import User
 
 
-class UserProfile(models.Model):
+class UserProfile(BaseModel):
     """
     Represents users' profiles in the system. Users' profile detail.
     A O2O relation with User. Some personal info
