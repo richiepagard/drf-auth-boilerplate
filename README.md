@@ -12,10 +12,7 @@ A simple Django Rest Framework project with basic JWT authentication setup.
 
 
 ## Stack
-- Python
-- Django
-- Django Rest Framework
-- SimpleJWT
+[![My Skills](https://skillicons.dev/icons?i=py,django&perline=3)](https://skillicons.dev)
 
 
 ## Getting Started
@@ -53,19 +50,6 @@ It's not meant for production use out of box.
 ## License
 
 **MIT**
-
-
-## TODO
-- [x] Setup Django project and structure
-- [x] Create custom user model
-- [x] Add user registration endpoint
-- [x] Generate JWT tokens after successful registration
-- [x] Setup SimpleJWT token endpoints
-- [x] Add login endpoint using JWT 
-- [x] Add user logout and token blacklist
-- [ ] Add password reset (via email or OTP)
-- [x] Add user profile endpoint
-- [ ] Write unit tests for authentication
 
 ---
 
