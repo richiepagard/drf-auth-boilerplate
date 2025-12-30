@@ -17,7 +17,7 @@ A simple Django Rest Framework project with basic JWT authentication setup.
 
 ## Getting Started
 ```bash
-git clone https://github.com/r-pagard/drf-auth-boilerplate.git
+git clone https://github.com/richiepagard/drf-auth-boilerplate.git
 cd drf-auth-boilerplate
 python3 -m venv .venv
 source .venv/bin/activate
