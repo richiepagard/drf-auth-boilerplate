@@ -12,7 +12,7 @@ A simple Django Rest Framework project with basic JWT authentication setup.
 
 
 ## Stack
-[![My Skills](https://skillicons.dev/icons?i=py,django&perline=3)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=py,django,postgres,docker)](https://skillicons.dev)
 
 
 ## Getting Started
