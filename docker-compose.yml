@@ -1,46 +1,58 @@
 services:
   postgres:
+    env_file:
+      - .env
+
     container_name: boilerplate-postgres
     image: postgres:14
+
     environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypass
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
     volumes:
       - boilerplate_postgres_data:/var/lib/postgresql/data/
     networks:
       - main
+
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER"]
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"]
       interval: 5s
       timeout: 5s
       retries: 10
+
     restart: always
 
+
   app:
+    env_file:
+      - .env
+
     build: .
+    image: boilerplate/app:1.0
     container_name: boilerplate-app
+
     command: >
       sh -c "
       python manage.py makemigrations &&
       python manage.py migrate &&
       python manage.py runserver 0.0.0.0:8000
       "
+
     depends_on:
       postgres:
         condition: service_healthy
-    environment:
-      DB_HOST: postgres
-      DB_NAME: mydb
-      DB_USER: myuser
-      DB_PASSWORD: mypass
+
     volumes:
       - .:/app
     ports:
       - "8000:8000"
     networks:
       - main
+
     restart: always
+
 
 networks:
   main:
