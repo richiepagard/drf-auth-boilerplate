@@ -15,7 +15,7 @@ A simple Django Rest Framework project with basic JWT authentication setup.
 
 
 ## Stack
-[![My Skills](https://skillicons.dev/icons?i=py,django,postgres,docker)](https://skillicons.dev)
+![Stacks](https://go-skill-icons.vercel.app/api/icons?i=python,django,djangorestframework,postgres,docker)
 
 
 ## Getting Started
