@@ -5,6 +5,8 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import JSONParser, MultiPartParser, FormParser
 
+from drf_spectacular.utils import extend_schema
+
 from accounts.serializers import (
     UserProfileRetrieveSerializer,
     UserProfileUpdateSerializer
@@ -12,6 +14,7 @@ from accounts.serializers import (
 from accounts.models import User
 
 
+@extend_schema(tags=["Auth - Users"])
 class UserProfileRetrieveView(APIView):
     """
     Showing user profile including user's public information.
@@ -42,6 +45,7 @@ class UserProfileRetrieveView(APIView):
         )
 
 
+@extend_schema(tags=["Auth - Users"])
 class UserPorfileUpdateView(APIView):
     """
     Lets users update/edit their own profile.

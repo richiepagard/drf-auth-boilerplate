@@ -3,9 +3,12 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 
+from drf_spectacular.utils import extend_schema
+
 from accounts.serializers import UserLogoutSerializer
 
 
+@extend_schema(tags=["Auth - Users"])
 class UserLogoutView(APIView):
     """
     Accepts a refresh token and blacklists it to log the user out.
