@@ -29,6 +29,7 @@ EXTERNAL_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'drf_spectacular',
 ]
 LOCAL_APPS = [
     'accounts.apps.AccountsConfig',
@@ -118,11 +119,17 @@ AUTH_USER_MODEL = 'accounts.User'
 
 # Rest framework configs
 REST_FRAMEWORK = {
+    # Default authentication
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ]
+    ],
+    # Auto schema
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 
 # Import JWT configs
 from .jwt import SIMPLE_JWT
+
+# DRF Spectacular configs
+from .spectacular_conf import SPECTACULAR_SETTINGS
