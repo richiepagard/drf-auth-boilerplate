@@ -130,3 +130,6 @@ REST_FRAMEWORK = {
 
 # Import JWT configs
 from .jwt import SIMPLE_JWT
+
+# DRF Spectacular configs
+from .spectacular_conf import SPECTACULAR_SETTINGS
