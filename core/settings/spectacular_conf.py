@@ -3,7 +3,6 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'A boilerplate for authentication in Django Rest Framework with JWT support.',
     # Version configs
     'VERSION': '1.7.4',
-    'SCHEMA_PATH_PREFIX': r'/api/v[0-9]',
 
     'SERVE_INCLUDE_SCHEMA': False,
     # Contact options
