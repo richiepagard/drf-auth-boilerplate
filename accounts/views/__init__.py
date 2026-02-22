@@ -5,3 +5,7 @@ from .user_profile_view import (
     UserProfileRetrieveView,
     UserPorfileUpdateView,
 )
+from .jwt_tokens_view import (
+    AuthTokenObtainPairView,
+    AuthTokenRefreshView
+)
