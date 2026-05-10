@@ -59,6 +59,19 @@ python3 manage.py createsuperuser
 This project is just a starting point.
 It's not meant for production use out of box.
 
+## Roadmap
+
+- [ ] API documentation with Swagger/OpenAPI
+- [ ] Automated test suite
+- [ ] CI/CD workflow
+- [ ] Environment-based configuration improvements
+- [ ] Extended authentication security features
+
+## Project Status
+
+Active development is ongoing.  
+Several improvements and feature updates are currently implemented locally and will be pushed in upcoming revisions.
+
 
 ## License
 
