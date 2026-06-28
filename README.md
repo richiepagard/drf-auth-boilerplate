@@ -61,7 +61,7 @@ It's not meant for production use out of box.
 
 ## Roadmap
 
-- [ ] API documentation with Swagger/OpenAPI
+- [x] API documentation with Swagger/OpenAPI
 - [ ] Automated test suite
 - [ ] CI/CD workflow
 - [ ] Environment-based configuration improvements
