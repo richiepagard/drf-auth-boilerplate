@@ -1,9 +1,6 @@
 ## Title of the PR(Pull Request)
 
-<!-- Please include a summary of the change and which issue is fixed. -->
-
-## Changes
-- ...
+<!-- Please describe what changed had been done and the summary of the tasks and changes -->
 
 
 ## Type of change
@@ -14,7 +11,7 @@
 - [ ] Bugfix
 - [ ] Feature
 - [ ] Code style update (formatting, renaming)
-- [ ] Refactoring (no functional changes)
+- [ ] Refactoring
 - [ ] Documentation
 - [ ] Tests
 - [ ] Other (please describe):
@@ -32,8 +29,5 @@
 
 
 ## Issues
-#### Related Issues
-- #
 
-#### Closed Issues
-- #
+Closes # 
