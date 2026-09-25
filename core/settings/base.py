@@ -16,79 +16,25 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# APP SETTINGS
-DJANGO_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
-EXTERNAL_APPS = [
-    'rest_framework',
-    'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist',
-    'drf_spectacular',
-]
-LOCAL_APPS = [
-    'accounts.apps.AccountsConfig',
-    'common.apps.CommonConfig',
-]
-INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + LOCAL_APPS
+### Apps settings config ###
+from .configs import INSTALLED_APPS
+
+### Middleware config ###
+from .configs import MIDDLEWARE
+
+### Templates config ###
+from .configs import TEMPLATES
+
+### Databases config ###
+from .configs import DATABASES
+
+### Passwords auth validators config ###
+from .configs import AUTH_PASSWORD_VALIDATORS
 
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
+# WSGI & ROOT ENDPOINTS
 ROOT_URLCONF = 'core.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
 WSGI_APPLICATION = 'core.wsgi.application'
-
-
-# Database
-from .db_conf import DATABASES
-
-
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
 
 
 # Internationalization
@@ -113,23 +59,16 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Default user model
-AUTH_USER_MODEL = 'accounts.User'
+
+### Default user model ###
+AUTH_USER_MODEL = "accounts.User"
 
 
-# Rest framework configs
-REST_FRAMEWORK = {
-    # Default authentication
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-    # Auto schema
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-}
+### Rest framework config ###
+from .configs import REST_FRAMEWORK
 
+### Simple JWT configs ###
+from .configs import SIMPLE_JWT
 
-# Import JWT configs
-from .jwt import SIMPLE_JWT
-
-# DRF Spectacular configs
-from .spectacular_conf import SPECTACULAR_SETTINGS
+### DRF spectacular configs ###
+from .configs import SPECTACULAR_SETTINGS
