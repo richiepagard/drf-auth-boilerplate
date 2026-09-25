@@ -40,32 +40,11 @@ docker exec -it boilerplate-app bash
 python3 manage.py createsuperuser
 ```
 
-
-## Endpoints
-
-| TITLE                 | METHOD |            URL                    |                            DESCRIPTION                                |
-|-----------------------|--------------------------------------------|-----------------------------------------------------------------------|-
-| Get JWT Tokens        |  POST  | `api/auth/token/`                 | Get access and refresh tokens.                                        |
-| Get Access Token      |  POST  | `api/auth/token/refresh/`         | Refresh access token.                                                 |
-| User Register         |  POST  | `api/auth/users/register/`        | Register new user + get JWT tokens.                                   |
-| User Login            |  POST  | `api/auth/users/login/`           | Login a new user with getting its **access** and **refresh** tokens.  |
-| User Logout           |  POST  | `api/auth/users/logout/`          | Logout user with the provided **refresh** token. Blacklists the token |
-| User Profile Retrieve |  GET   | `api/auth/users/<user-pk>/profile`| Retrieves a user profile with no permissions.                         |
-| User Profile Update   |  PATCH | `api/auth/users/profile/update/`  | Updating a user profile by its owner (partial update).                |
-
-
 ## Note
 
 This project is just a starting point.
 It's not meant for production use out of box.
 
-## Roadmap
-
-- [x] API documentation with Swagger/OpenAPI
-- [ ] Automated test suite
-- [ ] CI/CD workflow
-- [ ] Environment-based configuration improvements
-- [ ] Extended authentication security features
 
 ## Project Status
 
@@ -77,6 +56,11 @@ Several improvements and feature updates are currently implemented locally and w
 
 **MIT**
 
+
+## Contribution Instruction
+
+[CONTRIBUTING.md](./CONTRIBUTING.md)
+
 ---
 
-> "I built this to understand DRF + JWT better. Might help others too."
+> "I built this to understand Django REST Framework + JWT better. Might help others too."
