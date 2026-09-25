@@ -14,30 +14,6 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    id: solution
-
-    attributes:
-      label: Proposed Solution
-      description: |
-        Describe your proposed solution.
-        Be as clear and specific as possible.
-
-    validations:
-      required: true
-
-  - type: textarea
-    id: alternatives
-
-    attributes:
-      label: Alternatives Considered
-      description: |
-        Have you considered other approaches or workarounds?
-        If yes, describe them here.
-
-    validations:
-      required: false
-
   - type: checkboxes
     id: scope
 
@@ -59,7 +35,7 @@ body:
     attributes:
       label: Additional Context
       description: |
-        Add any extra context, examples, or references here.
+        Add any extra context, explanation, examples, or references here.
 
     validations:
       required: false
