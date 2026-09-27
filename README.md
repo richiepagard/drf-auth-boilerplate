@@ -51,6 +51,26 @@ Active development is ongoing.
 Several improvements and feature updates are currently implemented locally and will be pushed in upcoming revisions.
 
 
+## Endpoints
+
+#### API Documents
+- `api/schema/swagger-ui/`: The **Swagger** documentation for API.
+- `api/schema/redoc/`: The **Redoc** documentation for API.
+
+#### Authentication and Authorization
+
+**User Authentication**
+- `api/auth/users/register/`: User's account registration.
+- `api/auth/users/login/`: User login, logging in to the account.
+- `api/auth/users/logout/`: User logout, when user wants to logout to its account.
+
+**User Authorization**
+- `api/auth/users/<user-pk>/profile/`: Retrieving user's profile.
+- `api/auth/users/profile/update/`: Updating user's profile, only the profile's owner has permission.
+- `api/auth/token/`: The **JWT** token obtain pair view. The token generated after user registered to its account.
+- `api/auth/token/refresh/`: The **JWT** token refresh, for generating a new token for a user with its old Refresh Token.
+
+
 ## License
 
 **MIT (Massachusetts Institute of Technology)**
