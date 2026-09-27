@@ -2,6 +2,10 @@
 
 A simple Django REST Framework project with **JWT (JSON Web Token)** authentication setup.
 
+## Stack
+![Stacks](https://go-skill-icons.vercel.app/api/icons?i=python,django,djangorestframework,postgres,docker)
+
+
 ## Features
 
 - Custom user model (username, email, nickname).
@@ -11,10 +15,6 @@ A simple Django REST Framework project with **JWT (JSON Web Token)** authenticat
 - User authentication endpoints with best-practices.
 - Dockerized the project properly.
 - Tied to use best-practices.
-
-
-## Stack
-![Stacks](https://go-skill-icons.vercel.app/api/icons?i=python,django,djangorestframework,postgres,docker)
 
 
 ## Getting Started
