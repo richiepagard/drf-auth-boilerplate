@@ -53,11 +53,11 @@ Several improvements and feature updates are currently implemented locally and w
 
 ## Endpoints
 
-#### API Documents
+### API Documents
 - `api/schema/swagger-ui/`: The **Swagger** documentation for API.
 - `api/schema/redoc/`: The **Redoc** documentation for API.
 
-#### Authentication and Authorization
+### Authentication and Authorization
 
 **User Authentication**
 - `api/auth/users/register/`: User's account registration.
