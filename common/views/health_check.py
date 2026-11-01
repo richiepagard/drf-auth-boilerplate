@@ -6,10 +6,13 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 
+from drf_spectacular.utils import extend_schema
 
+
+@extend_schema(tags=["HEALTH CHECK"])
 @api_view(["GET"])
 @permission_classes([AllowAny])
-def health_check_dependency(request) -> Response:
+def health_check_readiness(request) -> Response:
     """
     Health check to checks the dependecies connectivity,
     such as database connection.
@@ -49,3 +52,14 @@ def health_check_dependency(request) -> Response:
             health_status,
             status=status.HTTP_503_SERVICE_UNAVAILABLE
         )
+
+
+@extend_schema(tags=["HEALTH CHECK"])
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def health_check_liveness(request) -> Response:
+    """
+    Liveness check to confirm the application process is running
+    and able to respond. It does not check any dependencies.
+    """
+    return Response({"status": "alive"}, status=status.HTTP_200_OK)

@@ -22,11 +22,16 @@ SPECTACULAR_URLS = [
     ),
 ]
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-
+ADMIN_URLS = [
+    path("admin/", admin.site.urls)
+]
+AUTH_URLS = [
     # JWT & future login/register APIs
     path('api/auth/', include('accounts.urls', namespace='accounts')),
 ]
+COMMON_URLS = [
+    path("", include("common.urls", namespace="common")),
+]
 
-urlpatterns += SPECTACULAR_URLS
+APPS_ENDPOINTS = AUTH_URLS + COMMON_URLS
+urlpatterns = ADMIN_URLS + APPS_ENDPOINTS + SPECTACULAR_URLS
