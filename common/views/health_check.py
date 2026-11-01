@@ -9,7 +9,7 @@ from rest_framework import status
 
 @api_view(["GET"])
 @permission_classes([AllowAny])
-def health_check_dependecy(request) -> Response:
+def health_check_dependency(request) -> Response:
     """
     Health check to checks the dependecies connectivity,
     such as database connection.
@@ -23,13 +23,14 @@ def health_check_dependecy(request) -> Response:
         # Gets the default database from the database connections
         # and interacting with the database (cursor)
         db_connection = connections["default"]
-        db_connection.cursor()
+        with db_connection.cursor() as cursor:
+            cursor.execute("SELECT 1")
 
         # If the database interacted and connected, it is healthy
         health_status["checks"]["database"] = "healthy"
 
-    except OperationalError as operationl_error:
-        print(f"Database health check failed: {str(operationl_error)}")
+    except OperationalError as operational_error:
+        print(f"Database health check failed: {str(operational_error)}")
 
         # If raised OperationalError from the database connection
         # the database connection and the application health status
