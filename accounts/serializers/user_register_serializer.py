@@ -30,7 +30,22 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         """
         Ensure that the two entered passwords match.
         Checking the password validation to ensure it is a strong password.
+        Normalizing the email and username and checks whther any account
+        with the entered email or username is already exists.
         """
+        attrs["username"] = attrs["username"].strip().lower()
+        attrs["email"] = attrs["email"].strip().lower()
+
+        if User.objects.filter(username=attrs["username"]).exists():
+            raise serializers.ValidationError(
+                {"username": _("This username is already taken.")}
+            )
+        if User.objects.filter(email=attrs["email"]).exists():
+            raise serializers.ValidationError(
+                {"email": "This email is already registered."}
+            )
+
+
         if attrs["password"] != attrs["password2"]:
             raise serializers.ValidationError(
                 self.default_error_messages["password_mismatch"]
