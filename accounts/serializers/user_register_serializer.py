@@ -1,5 +1,6 @@
-from rest_framework import serializers
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.password_validation import validate_password
+from rest_framework import serializers
 
 from accounts.models import User
 from accounts.utils import get_tokens_for_user
@@ -16,9 +17,9 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password', 'password2']
+        fields = ["username", "email", "password", "password2"]
         extra_kwargs = {
-            'password': {'write_only': True},
+            "password": {"write_only": True},
         }
 
     default_error_messages = {
@@ -28,11 +29,17 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     def validate(self, attrs: dict) -> dict:
         """
         Ensure that the two entered passwords match.
+        Checking the password validation to ensure it is a strong password.
         """
-        if attrs['password'] != attrs['password2']:
+        if attrs["password"] != attrs["password2"]:
             raise serializers.ValidationError(
                 self.default_error_messages["password_mismatch"]
             )
+
+        validate_password(
+            attrs["password"],
+            user=User(username=attrs.get("username"), email=attrs.get("email")),
+        )
 
         return attrs
 
