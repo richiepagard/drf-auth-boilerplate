@@ -43,8 +43,8 @@ class UserLoginSerializer(serializers.Serializer):
             dict: If the data validated successfully and user authenticated,
                 it contains user data.
         """
-        
-        username = attrs.get('username', '').strip()
+
+        username = attrs.get('username', '').strip().lower()
         password = attrs.get('password')
 
         if not username or not password:
