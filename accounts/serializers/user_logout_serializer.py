@@ -1,3 +1,4 @@
+from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 
@@ -7,6 +8,9 @@ class UserLogoutSerializer(serializers.Serializer):
     Blacklists a provided refresh token to log the user out server-side.
     Intended for JWT authentication setups using SimpleJWT.
     """
+    default_error_messages = {
+        "bad_token": _("Token is invalid or expired."),
+    }
     refresh = serializers.CharField()
 
     def validate(self, attrs: dict) -> dict:
