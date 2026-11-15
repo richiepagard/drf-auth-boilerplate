@@ -5,3 +5,4 @@ from .user_profile_serializer import (
     UserProfileUpdateSerializer
 )
 from .user_logout_serializer import UserLogoutSerializer
+from .response_schemas import auth_response
