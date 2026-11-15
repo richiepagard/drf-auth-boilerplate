@@ -4,10 +4,14 @@ from rest_framework import status
 
 from drf_spectacular.utils import extend_schema
 
-from accounts.serializers import UserRegisterSerializer
+from accounts.serializers import UserRegisterSerializer, auth_response
 
 
-@extend_schema(tags=["Auth - Users"])
+@extend_schema(
+    tags=["Auth - Users"],
+    request=UserRegisterSerializer,
+    responses={201: auth_response}
+)
 class UserRegisterView(APIView):
     """
     User registration view!
