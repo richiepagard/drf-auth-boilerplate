@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 
-from drf_spectacular.utils import extend_schema
+from drf_spectacular.utils import extend_schema, OpenApiResponse
 
 from accounts.serializers import UserLogoutSerializer, auth_response
 
@@ -11,7 +11,10 @@ from accounts.serializers import UserLogoutSerializer, auth_response
 @extend_schema(
     tags=["Auth - Users"],
     request=UserLogoutSerializer,
-    responses={205: auth_response},
+    responses={
+        205: OpenApiResponse(description="Logged out successfully"),
+        400: OpenApiResponse(description="Token is invalid or expired")
+    },
 )
 class UserLogoutView(APIView):
     """
@@ -22,7 +25,7 @@ class UserLogoutView(APIView):
         POST (HTTP).
 
     Returns:
-        205 Reset Content indicating successful logout or validation failure.
+        205 Reset Content indicating successful logout.
     """
     permission_classes = [IsAuthenticated]
 

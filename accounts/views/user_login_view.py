@@ -36,5 +36,5 @@ class UserLoginView(APIView):
 
         return Response(
             data=user,
-            status=status.HTTP_202_ACCEPTED
+            status=status.HTTP_200_OK
         )
