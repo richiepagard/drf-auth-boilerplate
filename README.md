@@ -47,8 +47,7 @@ It's not meant for production use out of box. It's in progress and try to separa
 
 ## Project Status
 
-Active development is ongoing.  
-Several improvements and feature updates are currently implemented locally and will be pushed in upcoming revisions.
+> Active development is ongoing.  
 
 
 ## Endpoints
@@ -69,6 +68,10 @@ Several improvements and feature updates are currently implemented locally and w
 - `api/auth/users/profile/update/`: Updating user's profile, only the profile's owner has permission.
 - `api/auth/token/`: The **JWT** token obtain pair view. The token generated after user registered to its account.
 - `api/auth/token/refresh/`: The **JWT** token refresh, for generating a new token for a user with its old Refresh Token.
+
+### Checks
+- `/health/live/`: Liveness check to confirm the application process is running and able to respond. It does not check any dependencies.
+- `/health/ready/`: Health check to checks the dependecies connectivity, such as database connection.
 
 
 ## License
